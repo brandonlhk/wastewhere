@@ -25,7 +25,8 @@ function App() {
       const reader = new FileReader()
       reader.onloadend = () => {
         setImage(reader.result)
-        setBase64(reader.result)
+
+        setBase64(reader.result.split(",")[1])
       }
       reader.readAsDataURL(file)
 

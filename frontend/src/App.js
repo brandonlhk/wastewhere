@@ -1,21 +1,31 @@
 import logo from './images/wastewhere.png';
-import {useState} from "react";
+import {useState, useEffect} from "react";
 import LoadingModal from "./components/loadingPage"
 import Toast from "./components/Toast"
 
 function App() {
 
   const [image, setImage] = useState(null)
+  const [base64, setBase64] = useState("")
   const [isLoading, setIsLoading] = useState(false)
   const [notRecyclableToast, setNotRecyclableToast] = useState(false);
   const [RecyclableToast, setRecyclableToast] = useState(false);
+  
+  //send data to backend once setBase64 is done
+  useEffect(() => {
+    if (base64) {
+      classify(base64)
+    }
+  }, [base64])
 
+  //allow user to upload images from 
   const uploadImage = (event) => {
     const file = event.target.files[0]
     if (file) {
       const reader = new FileReader()
       reader.onloadend = () => {
         setImage(reader.result)
+        setBase64(reader.result)
       }
       reader.readAsDataURL(file)
 
@@ -34,13 +44,35 @@ function App() {
     }
   }
 
+  // function to send image to classify
+  const classify = async (encodedB64) => {
+    try {
+      const options = {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({image: encodedB64})
+      }
+
+      const response = await fetch ("/classify", options)
+      const data = await response.json();
+
+      console.log(data)
+      return data
+    }
+    catch (error) {
+      console.error("Error uploading the image", error)
+      return error
+    }
+  }
 
   return (
     <div className="flex flex-col min-h-screen bg-off-white">
 
       {/* Navbar */}
       <div className="navbar bg-green-600 shadow-sm">
-        <a className="btn btn-ghost"><img className="h-10" src={logo} alt="wastewhere logo"/></a>
+        <button><img className="h-10" src={logo} alt="wastewhere logo"/></button>
       </div>
 
       {/* Card */}

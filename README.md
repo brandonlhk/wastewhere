@@ -1,8 +1,20 @@
 # WasteWhere
 <img src="https://cdn-icons-png.flaticon.com/512/2514/2514330.png" alt="drawing" width="100"/>
 
-## Information
-a waste management web app (mobile responsive), that identifies recyclable items and if its in good condition to be recycled.
+## Overview of WasteWhere
+A web application that takes in a photo that the user takes of his possibly recyclable item and confirms if it is suitable for recycling based on the state i.e no food stains/liquids in it.
+
+### Key features
+1. Camera feature to immediately take a photo of the item
+1. Uses a convolutional neural network (CNN) to determine if item in image is ready for recycling
+1. Built for both desktop and mobile
+
+
+Many young Singaporeans who have expressed strong interest and desire to recycle but lack the knowledge to recycle efficiently and effectively[^1]. Therefore, our solution aims to educates young Singaporeans on the proper condition of the item before recycling. 
+
+WasteWhere empowers individuals to take charge of their recycling practices, promoting responsible waste management and reducing environmental impact. Together, we can make a positive difference for our planet 🌎.
+
+With plans to integrate QR codes on recycling bins, users will be able to quickly scan and photograph items to instantly determine if they can be recycled. This simple process not only boosts awareness of recyclable materials but also helps reduce contamination in recycling bins, ensuring more effective waste management.
 
 ## Setup
 ### Pre-requisites:
@@ -46,3 +58,6 @@ a waste management web app (mobile responsive), that identifies recyclable items
 
     <img src="readme_images/image2.jpg" alt="step2" width="150"/>
     <img src="readme_images/image3.jpg" alt="step3" width="150"/>
+
+#### References
+[^1]: https://www.channelnewsasia.com/singapore/in-focus-singapore-recycling-sustainability-blue-bins-waste-1339091

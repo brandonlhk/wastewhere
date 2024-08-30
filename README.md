@@ -23,6 +23,8 @@ a waste management web app (mobile responsive), that identifies recyclable items
 
 1. Go back to the root directory and install the pip packages
 
+    ```$ cd ..```
+
     ```$ pip install -r requirements.txt```
 
 1. Run the flask server

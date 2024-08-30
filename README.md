@@ -10,7 +10,7 @@ A web application that takes in a photo that the user takes of his possibly recy
 1. Built for both desktop and mobile
 
 
-Many young Singaporeans who have expressed strong interest and desire to recycle but lack the knowledge to recycle efficiently and effectively[^1]. Therefore, our solution aims to educates young Singaporeans on the proper condition of the item before recycling. 
+While many Singaporeans know that materials like plastic, paper, and wood can be recycled, fewer are aware of or adhere to proper recycling guidelines. These guidelines, such as ensuring items are free of food and liquids and refraining from rinsing items before recycling, are crucial. When ignored, they lead to contamination of other recyclables in the bin, rendering them unrecyclable. In fact, studies show that 40% of the contents in recycling bins are contaminated by waste.[^1]. Therefore, our solution aims to educates young Singaporeans on the proper condition of the item before recycling. 
 
 WasteWhere empowers individuals to take charge of their recycling practices, promoting responsible waste management and reducing environmental impact. Together, we can make a positive difference for our planet 🌎.
 
@@ -60,4 +60,7 @@ With plans to integrate QR codes on recycling bins, users will be able to quickl
     <img src="readme_images/image3.jpg" alt="step3" width="150"/>
 
 #### References
-[^1]: https://www.channelnewsasia.com/singapore/in-focus-singapore-recycling-sustainability-blue-bins-waste-1339091
+[^1]: [https://www.channelnewsasia.com/singapore/in-focus-singapore-recycling-sustainability-blue-bins-waste-1339091](https://www.straitstimes.com/singapore/askst-what-is-
+recycling-contamination-and-what-can-we-do-about-
+it#:~:text=Clean%20and%20dry%20recyclables%20before,recycling%20bin%20wor
+th%20of%20recyclables.)

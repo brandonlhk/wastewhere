@@ -13,9 +13,26 @@ function App() {
   
   //send data to backend once setBase64 is done
   useEffect(() => {
-    if (base64) {
-      classify(base64)
+
+    const getResult = async () => {
+      //only run if base64 has been set
+      if (base64) {
+        try {
+          const result = await classify(base64)
+          setIsLoading(false)
+          if (result == "recyclable") {
+            setRecyclableToast(true)
+          } else {
+            setNotRecyclableToast(true)
+          }
+        } catch (error) {
+          console.error("Error during classification", error)
+          setIsLoading(false)
+        }
+      }
     }
+
+    getResult()
   }, [base64])
 
   //allow user to upload images from 
@@ -31,17 +48,6 @@ function App() {
       reader.readAsDataURL(file)
 
       setIsLoading(true)
-
-
-      setTimeout(() => {
-        setIsLoading(false)
-        if (true) { //this is where the backend returns true or false
-          setRecyclableToast(true)
-        } else {
-          setNotRecyclableToast(true)
-        }
-
-      }, 3000)
     }
   }
 
@@ -59,8 +65,7 @@ function App() {
       const response = await fetch ("/classify", options)
       const data = await response.json();
 
-      console.log(data)
-      return data
+      return data.predicted_class
     }
     catch (error) {
       console.error("Error uploading the image", error)
@@ -119,7 +124,7 @@ function App() {
       </div>
 
       {/* Results */}
-      <Toast message="It is not recyclable!" show={notRecyclableToast} onClose={() => setNotRecyclableToast(false)} color={"danger"} />
+      <Toast message="It is not recyclable!" show={notRecyclableToast} onClose={() => setNotRecyclableToast(false)} color={"error"} />
       <Toast message="It is recyclable!" show={RecyclableToast} onClose={() => setRecyclableToast(false)} color={"success"} />
       {/* Modal */}
       <LoadingModal isVisible={isLoading} />

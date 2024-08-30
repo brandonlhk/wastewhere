@@ -6,6 +6,7 @@ import torch
 import torch.nn as nn
 from torchvision import models, transforms
 from PIL import Image
+import io
 
 # Load the saved model
 model = models.resnet18(pretrained=True)
@@ -51,8 +52,8 @@ def process():
     encoded = images['image']
     decoded = base64.b64decode(encoded)
 
-    decodedImage = prepare_image(decoded)
-    # decodedImage = view_image.open(io.BytesIO(decoded2))
+    decoded2 = Image.open(io.BytesIO(decoded))
+    decodedImage = prepare_image(decoded2)
 
     # Perform inference
     with torch.no_grad():
